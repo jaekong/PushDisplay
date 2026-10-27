@@ -4,7 +4,7 @@
 import PackageDescription
 
 let package = Package(
-    name: "PushDisplay",
+    name: "PushKit",
     platforms: [.macOS(.v27)],
     dependencies: [
         .package(name: "swift-usb", path: "/Users/jae/Documents/random stuff/swift-usb"),
@@ -12,18 +12,18 @@ let package = Package(
     ],
     targets: [
         .target(
-            name: "PushDisplay",
+            name: "PushDisplayDriver",
             dependencies: [
                 .product(name: "USB", package: "swift-usb"),
             ],
             swiftSettings: [
-                .treatWarning("EmbeddedRestrictions", as: .warning),
+                .treatWarning("EmbeddedRestrictions", as: .error),
             ],
         ),
         .testTarget(
-            name: "PushDisplayTest",
+            name: "PushKitDisplayTest",
             dependencies: [
-                .target(name: "PushDisplay"),
+                .target(name: "PushDisplayDriver"),
                 .product(name: "ImageFormats", package: "swift-image-formats"),
             ],
             resources: [

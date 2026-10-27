@@ -1,7 +1,7 @@
 import Foundation
 import ImageFormats
 import Testing
-@testable import PushDisplay
+@testable import PushKitDisplay
 
 @Test @MainActor func displayTest() async throws {
     guard let imageURL = Bundle.module.url(forResource: "TestImage", withExtension: "png") else { fatalError() }
